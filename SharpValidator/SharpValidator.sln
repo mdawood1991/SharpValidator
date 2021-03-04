@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpValidator", "SharpValidator\SharpValidator.csproj", "{CC4B249A-5ACD-4FF4-A341-817316E72496}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpValidator.Tests", "tests\SharpValidator.Tests\SharpValidator.Tests.csproj", "{3D160085-CEC6-4E70-96EC-5F9DDA0FE6F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC4B249A-5ACD-4FF4-A341-817316E72496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC4B249A-5ACD-4FF4-A341-817316E72496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC4B249A-5ACD-4FF4-A341-817316E72496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC4B249A-5ACD-4FF4-A341-817316E72496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D160085-CEC6-4E70-96EC-5F9DDA0FE6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D160085-CEC6-4E70-96EC-5F9DDA0FE6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D160085-CEC6-4E70-96EC-5F9DDA0FE6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D160085-CEC6-4E70-96EC-5F9DDA0FE6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34642B76-5862-4288-AE87-2D302975A502}
+	EndGlobalSection
+EndGlobal
