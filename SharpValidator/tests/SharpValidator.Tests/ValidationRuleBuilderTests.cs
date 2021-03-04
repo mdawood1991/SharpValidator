@@ -1,7 +1,4 @@
 ﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SharpValidator.Tests
 {
@@ -34,7 +31,6 @@ namespace SharpValidator.Tests
             Assert.AreEqual(expectError, validation.HasErrors());
             Assert.AreEqual(expectError, validation.ContainsError("Two Property Validation message."));
         }
-
 
         [TestCase(true, true)]
         [TestCase(false, false)]

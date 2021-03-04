@@ -6,13 +6,17 @@ namespace SharpValidator
     public class ValidationRuleBuilder<T> : IValidationRuleBuilder<T>
     {
         private T _object;
-        private List<Func<T, bool>> _rules = new List<Func<T, bool>>();
-        private ValidationResults _validation;
+        private readonly List<Func<T, bool>> _rules = new List<Func<T, bool>>();
+        private readonly ValidationResults _validation;
 
-        public IValidationRuleBuilder<T> Given(T targetObj, ValidationResults validation)
+        public ValidationRuleBuilder(ValidationResults validation)
+        {
+            this._validation = validation ?? new ValidationResults();
+        }
+
+        public IValidationRuleBuilder<T> Given(T targetObj)
         {
             this._object = targetObj;
-            this._validation = validation;
             return this;
         }
 
