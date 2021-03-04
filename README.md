@@ -18,13 +18,13 @@ public class SampleClass
 
         public ValidationResults Validate(ValidationResults validation)
         {
-            var builder = new ValidationRuleBuilder<SampleClass>();
+            var builder = new ValidationRuleBuilder<SampleClass>(validation);
 
-            builder.Given(this, validation)
+            builder.Given(this)
                 .When(self => self.Property3 == true)
                 .Then("One Property Validation message.", nameof(Property3));
 
-            builder.Given(this, validation)
+            builder.Given(this)
                 .When(self => self.Property1 == true)
                 .And(self => self.Property2 == true)
                 .Then("Two Property Validation message.", nameof(Property1));
