@@ -3,9 +3,10 @@
 A simple to use validation rule builder for .NET.
 
 
-Getting Started
+## Getting Started
 
 1 - Install the nuget package (TODO: build / publish nuget package)
+
 2 - Add a validate method in your class
 
 ```
