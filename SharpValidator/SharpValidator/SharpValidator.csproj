@@ -1,7 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
+    <RepositoryUrl>https://github.com/mdawood1991/SharpValidator</RepositoryUrl>
+    <Description>A simple C# Validation Rule Builder.</Description>
+    <PackageReleaseNotes>Initital release</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
