@@ -5,7 +5,17 @@ A simple to use validation rule builder for .NET.
 
 ## Getting Started
 
-1 - Install the nuget package (TODO: build / publish nuget package)
+1 - Install the nuget package 
+    Check the latest version here: https://www.nuget.org/packages/SharpValidator/
+
+   ```
+   Install-Package SharpValidator -Version 1.0.3
+   ```
+   or for .NET CLI
+   ```
+   dotnet add package SharpValidator --version 1.0.3
+   ```
+   
 
 2 - Add a validate method in your class
 
