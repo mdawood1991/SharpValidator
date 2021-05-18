@@ -20,24 +20,31 @@ A simple to use validation rule builder for .NET.
 2 - Add a validate method in your class
 
 ```
-public class SampleClass
+    public class SampleClass
     {
-        public bool Property1 { get; set; }
-        public bool Property2 { get; set; }
-        public bool Property3 { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        
+        public bool HasDriverLicense{ get; set; }
+        public string DriverLicenseNumber { get; set; }
 
         public ValidationResults Validate(ValidationResults validation)
         {
             var builder = new ValidationRuleBuilder<SampleClass>(validation);
 
             builder.Given(this)
-                .When(self => self.Property3 == true)
-                .Then("One Property Validation message.", nameof(Property3));
+                .When(self => string.IsNullOrEmpty(LastName))
+                .Then("Last name is a required field.", nameof(LastName));
 
             builder.Given(this)
-                .When(self => self.Property1 == true)
-                .And(self => self.Property2 == true)
-                .Then("Two Property Validation message.", nameof(Property1));
+               .When(self => self.DateOfBirth >= DateTime.Now)
+               .Then("Date of Birth can't be in the future.", nameof(DateOfBirth));
+
+
+            builder.Given(this)
+                .When(self => self.HasDriverLicense)
+                .And(self => string.IsNullOrEmpty(DriverLicenseNumber))
+                .Then("Driver license number is a required field if HasDriverLicense is checked.", nameof(DriverLicenseNumber));
 
             return validation;
         }
@@ -47,19 +54,26 @@ public class SampleClass
 
 3 - Call the Validate method
 ```
-  var obj = new SampleClass()
-  {
-      Property1 = true,
-      Property2 = true
-  };
+// arrange
+var obj = new SampleClass()
+{
+    DateOfBirth = DateTime.Now.AddMinutes(-5),
+    LastName = "last name",
+    DriverLicenseNumber = null,
+    HasDriverLicense = true
+};
 
+// act
+var validation = obj.Validate(new ValidationResults());
 
-  var validation = obj.Validate(new ValidationResults());
+// assert 
+Assert.AreEqual(expectError, validation.HasErrors());
+Assert.AreEqual(expectError, validation.ContainsError("Driver license number is a required field if HasDriverLicense is checked."));
 ```
 
 
 4 - Display the results from validation to your user or bind it to an input :-)
 
 ```
-[{"Message":"Two Property Validation message.","Key":"Property1","ValidationType":1}]
+[{"Message":"Driver license number is a required field if HasDriverLicense is checked.","Key":"DriverLicenseNumber","ValidationType":1}]
 ```
